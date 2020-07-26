@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ShopSolution.Data.Entities;
+using ShopSolution.Data.Enums;
 
 namespace ShopSolution.Data.Configurations
 {
