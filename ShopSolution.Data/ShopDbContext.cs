@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShopSolution.Data.Configurations;
 using ShopSolution.Data.Entities;
+using ShopSolution.Data.Extensions;
 
 namespace ShopSolution.Data
 {
@@ -24,6 +25,7 @@ namespace ShopSolution.Data
             modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+            modelBuilder.Seed();
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
