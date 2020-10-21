@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopSolution.Data;
 
 namespace ShopSolution.Data.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    partial class ShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201021111723_AddIdentityDatabase")]
+    partial class AddIdentityDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,9 +164,7 @@ namespace ShopSolution.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -174,13 +174,13 @@ namespace ShopSolution.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppRoles");
+                    b.ToTable("Roles");
 
                     b.HasData(
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "1ed1edef-5b0b-4b6f-a420-6e6441d4cb88",
+                            ConcurrencyStamp = "8fcab905-32a9-40e5-98d2-2e5e393e8cc7",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -209,14 +209,10 @@ namespace ShopSolution.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -250,14 +246,14 @@ namespace ShopSolution.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppUsers");
+                    b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1aeae7f5-c0d3-40aa-805e-1b402c02e27d",
+                            ConcurrencyStamp = "04f49d9a-bd6a-43ff-b23c-87a91c3107a6",
                             Dob = new DateTime(1996, 1, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "thienbv.1301@gmail.com.vn",
                             EmailConfirmed = true,
@@ -266,7 +262,7 @@ namespace ShopSolution.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "thienbv.1301@gmail.com.vn",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOD0jBOg7h2SAaea20TKuRv7EVKTldG36/OsnVfNvqAIn+WYM9Ta5ETvmcRVzfjNCw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOFA/8VWkS2zUD504Ao3deHy02aj/phYuo81jgeSWjn//4OhSt8gh0blkljo2Qklow==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -520,7 +516,7 @@ namespace ShopSolution.Data.Migrations
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 10, 21, 18, 23, 19, 168, DateTimeKind.Local).AddTicks(9793));
+                        .HasDefaultValue(new DateTime(2020, 10, 21, 18, 17, 23, 51, DateTimeKind.Local).AddTicks(9389));
 
                     b.Property<string>("ShipAddress")
                         .IsRequired()
@@ -613,7 +609,7 @@ namespace ShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2020, 10, 21, 18, 23, 19, 182, DateTimeKind.Local).AddTicks(4787),
+                            DateCreated = new DateTime(2020, 10, 21, 18, 17, 23, 64, DateTimeKind.Local).AddTicks(3350),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
